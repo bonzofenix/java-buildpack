@@ -24,7 +24,7 @@
 
 
 repository_root: "https://s3.amazonaws.com/wmg-cf-public/oracle/{platform}/{architecture}"
-version: 8u5
+version: 8.5
 memory_sizes:
   permgen: 64m..
 memory_heuristics:
