@@ -18,8 +18,13 @@
 # You must specify a the repository root of an Oracle JRE repository. Please see the documentation for more detail.
 # e.g.  repository_root: "http://example.com/oracle-jre/{platform}/{architecture}"
 
-repository_root: ""
-version: 1.7.0_+
+# http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.7.0_55.tar.gz
+#
+# https://s3.amazonaws.com/wmg-cf-public/oracle/lucid/x86_64/oracle-8u5.tar.gz
+
+
+repository_root: "https://s3.amazonaws.com/wmg-cf-public/oracle/{platform}/{architecture}"
+version: 8u5
 memory_sizes:
   permgen: 64m..
 memory_heuristics:
