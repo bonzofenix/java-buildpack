@@ -127,7 +127,7 @@ module JavaBuildpack
             elsif redirect?(response)
               downloaded = update URI(response['Location']), cached_file
             else
-              fail InferredNetworkFailure, "Bad response: #{response}"
+              fail InferredNetworkFailure, "Bad response: #{response.inspect} for request #{request.inspect} to uri #{http.inspect}"
             end
           end
 
@@ -238,7 +238,7 @@ module JavaBuildpack
 
         def update(uri, cached_file)
           proxy(uri).start(uri.host, uri.port, http_options(uri)) do |http|
-            @logger.debug { "HTTP: #{http.address}, #{http.port}, #{http_options(uri)}" }
+            @logger.warn { "HTTP: #{http.address}, #{http.port}, #{http_options(uri)}" }
             request = request uri, cached_file
             request.basic_auth uri.user, uri.password
 
@@ -250,7 +250,7 @@ module JavaBuildpack
                 InternetAvailability.instance.available false, "Request failed: #{e.message}"
                 raise e
               else
-                @logger.warn { "Request failure #{failures}, retrying: #{e.message}" }
+                @logger.warn { "Request failure #{failures}, retrying: #{e.message} with proxy #{proxy(uri).inspect} to adress #{http.address}" }
                 retry
               end
             end

@@ -23,7 +23,7 @@
 # https://s3.amazonaws.com/wmg-cf-public/oracle/lucid/x86_64/oracle-8u5.tar.gz
 
 
-repository_root: "https://wmg-cf-public.s3.amazonaws.com/oracle/{platform}/{architecture}"
+repository_root: "http://wmg-cf-public.s3.amazonaws.com/oracle/{platform}/{architecture}"
 version: 8.0.5
 memory_sizes:
   permgen: 64m..
