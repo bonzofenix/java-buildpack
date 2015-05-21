@@ -16,11 +16,13 @@
 # Configuration for JRE repositories keyed by vendor
 ---
 repository_root: "{default.repository.root}/openjdk/{platform}/{architecture}"
-version: 1.7.0_+
+version: 1.8.0_+ # becomes 1.8.0_25
 memory_sizes:
-  permgen: 64m..
+  metaspace: 64m.. # permgen becomes metaspace
 memory_heuristics:
-  heap: 75
-  permgen: 10
+  heap: 85
+  metaspace: 10 # permgen becomes metaspace
   stack: 5
   native: 10
+
+
